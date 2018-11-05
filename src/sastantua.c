@@ -6,7 +6,7 @@ void	process_args(char *str)
 	int	n;
 
 	n = ft_atoi(str);
-	if (n == 0 || n >= 6)
+	if (n == 0 || n >= 20)
 		print_error_msg("Usage: sastantua size");
 	else
 		sastantua(n);
@@ -61,7 +61,8 @@ void	print_lines(int h, int max_width)
 		print_left((max_width - width)/2);
 		if (i >= h - door_size)
 		{
-			print_body(width - 2, door_size, 0);
+			print_body(width - 2, door_size,
+				door_size >= 5 && i == h - 1 - (door_size / 2));
 		} else
 			print_body(width - 2, 0, 0);
 		print_right((max_width - width)/2);
@@ -100,18 +101,18 @@ void	print_body(int asterisk_count, int d, int key)
 	{
 		start_d = (asterisk_count - d) / 2;
 		print_char('*', start_d);
-		/*if (key)
+		if (key)
 		{
-			if (key >= 5) {
-				print_char('|', d - 2);
-				ft_putchar('$');
-				ft_putchar('|');
-			}
+			print_char('|', d - 2);
+			ft_putchar('$');
+			ft_putchar('|');
+			print_char('*', start_d);
 		}
-		else {*/
+		else
+		{
 			print_char('|', d);
 			print_char('*', start_d);
-		//}
+		}
 	}
 	else
 		print_char('*', asterisk_count);
