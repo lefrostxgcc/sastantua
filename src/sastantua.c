@@ -49,20 +49,29 @@ void	print_lines(int h, int max_width)
 	int diff;
 	int size;
 	int size_top_i;
+	int door_size;
 
 	i = 0;
 	width = 3;
 	size = 1;
+	door_size = 1;
 	size_top_i = calc_size_height(size);
 	while (i < h)
 	{
 		print_left((max_width - width)/2);
-		print_body(width - 2);
+		if (i >= h - door_size)
+		{
+			print_body(width - 2, door_size, 0);
+		} else
+			print_body(width - 2, 0, 0);
 		print_right((max_width - width)/2);
 		i++;
+		
 		if (i >= size_top_i)
 		{
 			size++;
+			if (size % 2 == 1)
+				door_size += 2;
 			width += calc_size_height(size) / 2 * 2;
 			size_top_i += calc_size_height(size);
 		}
@@ -82,9 +91,30 @@ void	print_right(int blank_count)
 	ft_putchar('\n');
 }
 
-void	print_body(int asterisk_count)
+void	print_body(int asterisk_count, int d, int key)
 {
-	print_char('*', asterisk_count);
+	int i;
+	int start_d;
+
+	if (d != 0)
+	{
+		start_d = (asterisk_count - d) / 2;
+		print_char('*', start_d);
+		/*if (key)
+		{
+			if (key >= 5) {
+				print_char('|', d - 2);
+				ft_putchar('$');
+				ft_putchar('|');
+			}
+		}
+		else {*/
+			print_char('|', d);
+			print_char('*', start_d);
+		//}
+	}
+	else
+		print_char('*', asterisk_count);
 }
 
 void	print_char(char ch, int n)

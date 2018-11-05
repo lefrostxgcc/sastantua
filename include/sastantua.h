@@ -15,6 +15,6 @@ void	print_lines(int h, int max_width);
 void	print_char(char ch, int n);
 void	print_left(int blank_count);
 void	print_right(int blank_count);
-void	print_body(int asterisk_count);
+void	print_body(int asterisk_count, int d, int key);
 
 #endif
