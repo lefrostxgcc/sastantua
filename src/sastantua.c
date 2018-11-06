@@ -54,7 +54,12 @@ void	print_line(int i, int width, int door_size, int h, int max_width)
 			door_size >= 5 && i == h - 1 - (door_size / 2));
 	} else
 		print_body(width - 2, 0, 0);
-	print_right_side((max_width - width)/2);
+	print_right_side();
+}
+
+int		is_need_print_key(int line, int height, int door_size)
+{
+	return (door_size >= 5 && line == height - 1 - (door_size / 2));
 }
 
 void	print_left_side(int blank_count)
