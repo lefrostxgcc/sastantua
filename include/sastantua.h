@@ -14,7 +14,7 @@ int		calc_total_height(int size);
 void	print_lines(int h, int max_width);
 void	print_char(char ch, int n);
 void	print_left(int blank_count);
-void	print_right(int blank_count);
+void	print_right();
 void	print_body(int asterisk_count, int d, int key);
 
 #endif

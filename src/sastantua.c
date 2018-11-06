@@ -1,12 +1,11 @@
 #include "../include/sastantua.h"
-#include <stdio.h>
 
 void	process_args(char *str)
 {
 	int	n;
 
 	n = ft_atoi(str);
-	if (n == 0 || n >= 20)
+	if (n == 0)
 		print_error_msg("Usage: sastantua size");
 	else
 		sastantua(n);
@@ -46,7 +45,6 @@ void	print_lines(int h, int max_width)
 {
 	int	i;
 	int width;
-	int diff;
 	int size;
 	int size_top_i;
 	int door_size;
@@ -86,7 +84,7 @@ void	print_left(int blank_count)
 	ft_putchar('/');
 }
 
-void	print_right(int blank_count)
+void	print_right()
 {
 	ft_putchar('\\');
 	ft_putchar('\n');
@@ -94,7 +92,6 @@ void	print_right(int blank_count)
 
 void	print_body(int asterisk_count, int d, int key)
 {
-	int i;
 	int start_d;
 
 	if (d != 0)
