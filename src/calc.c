@@ -28,7 +28,15 @@ int		calc_size_width(int size)
 	return (w);
 }
 
-int		is_need_print_key(int line, int height, int door_size)
+int		calc_door_size_on_line(int line, int height, int door_size)
+{
+	if (line >= height - door_size)
+		return door_size;
+	else
+		return 0;
+}
+
+int		is_key_on_line(int line, int height, int door_size)
 {
 	return (door_size >= 5 && line == height - 1 - (door_size / 2));
 }
