@@ -5,7 +5,7 @@ INCLS := ft.h sastantua.h
 INCLDIR = include/
 HEADERS = $(addprefix $(INCLDIR), $(INCLS))
 
-SRCS := main.c sastantua.c ft.c
+SRCS := main.c sastantua.c ft.c calc.c print.c
 SRCDIR = src/
 FILES = $(addprefix $(SRCDIR), $(SRCS))
 
