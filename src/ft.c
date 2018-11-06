@@ -1,9 +1,16 @@
 #include <unistd.h>
 #include "../include/ft.h"
 
+int		fd_output;
+
+void	set_fd_output(int fd)
+{
+	fd_output = fd;
+}
+
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(fd_output, &c, 1);
 }
 
 void	ft_putchar_n(char c, int n)
