@@ -20,7 +20,9 @@ void	sastantua(int ssize)
 	size_top_i = calc_size_height(size);
 	while (i < h)
 	{
-		print_line(i, width, door_size, h, max_width);
+		print_line((max_width - width)/2, width - 2,
+			(i >= h - door_size) ? door_size : 0,
+			is_need_print_key(i, h, door_size));
 		i++;
 		
 		if (i >= size_top_i)
@@ -45,15 +47,10 @@ int		calc_total_height(int size)
 	return ((2 * 3 + (size - 1)) * size / 2);
 }
 
-void	print_line(int i, int width, int door_size, int h, int max_width)
+void	print_line(int blanks, int asteriks, int door, int key)
 {
-	print_left_side((max_width - width)/2);
-	if (i >= h - door_size)
-	{
-		print_body(width - 2, door_size,
-			door_size >= 5 && i == h - 1 - (door_size / 2));
-	} else
-		print_body(width - 2, 0, 0);
+	print_left_side(blanks);
+	print_asterisks(asteriks, door, key);
 	print_right_side();
 }
 
@@ -74,7 +71,7 @@ void	print_right_side()
 	ft_putchar('\n');
 }
 
-void	print_body(int asterisk_count, int d, int key)
+void	print_asterisks(int asterisk_count, int d, int key)
 {
 	int start_d;
 
