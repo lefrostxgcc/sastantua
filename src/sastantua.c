@@ -71,29 +71,23 @@ void	print_right_side()
 	ft_putchar('\n');
 }
 
-void	print_asterisks(int asterisk_count, int d, int key)
+void	print_asterisks(int asterisk_count, int door_size, int key)
 {
-	int start_d;
-
-	if (d != 0)
+	print_char('*', asterisk_count / 2 - door_size / 2);
+	if (door_size == 1)
+		ft_putchar('|');
+	else if (door_size > 2)
 	{
-		start_d = (asterisk_count - d) / 2;
-		print_char('*', start_d);
+		print_char('|', door_size - 2);
 		if (key)
-		{
-			print_char('|', d - 2);
 			ft_putchar('$');
-			ft_putchar('|');
-			print_char('*', start_d);
-		}
 		else
-		{
-			print_char('|', d);
-			print_char('*', start_d);
-		}
+			ft_putchar('|');
+		ft_putchar('|');
 	}
 	else
-		print_char('*', asterisk_count);
+		ft_putchar('*');
+	print_char('*', asterisk_count / 2 - door_size / 2);
 }
 
 void	print_char(char ch, int n)
