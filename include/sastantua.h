@@ -5,7 +5,7 @@ void	sastantua(int size);
 int		calc_size_width(int size);
 int		calc_size_height(int size);
 int		calc_total_height(int size);
-void	print_lines(int h, int max_width);
+void	print_line(int i, int width, int door_size, int h, int max_width);
 void	print_char(char ch, int n);
 void	print_left_side(int blank_count);
 void	print_right_side();

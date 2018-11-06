@@ -1,34 +1,18 @@
 #include "../include/ft.h"
 #include "../include/sastantua.h"
 
-void	sastantua(int size)
-{
-	int	h;
-	int max_width;
-
-	h = calc_total_height(size);
-	max_width = calc_size_width(size);
-	print_lines(h, max_width);
-}
-
-int		calc_size_height(int size)
-{
-	return (size + 2);
-}
-
-int		calc_total_height(int size)
-{
-	return ((2 * 3 + (size - 1)) * size / 2);
-}
-
-void	print_lines(int h, int max_width)
+void	sastantua(int ssize)
 {
 	int	i;
 	int width;
 	int size;
 	int size_top_i;
 	int door_size;
+	int	h;
+	int max_width;
 
+	h = calc_total_height(ssize);
+	max_width = calc_size_width(ssize);
 	i = 0;
 	width = 3;
 	size = 1;
@@ -36,14 +20,7 @@ void	print_lines(int h, int max_width)
 	size_top_i = calc_size_height(size);
 	while (i < h)
 	{
-		print_left_side((max_width - width)/2);
-		if (i >= h - door_size)
-		{
-			print_body(width - 2, door_size,
-				door_size >= 5 && i == h - 1 - (door_size / 2));
-		} else
-			print_body(width - 2, 0, 0);
-		print_right_side((max_width - width)/2);
+		print_line(i, width, door_size, h, max_width);
 		i++;
 		
 		if (i >= size_top_i)
@@ -56,6 +33,28 @@ void	print_lines(int h, int max_width)
 		}
 		width += 2;
 	}
+}
+
+int		calc_size_height(int size)
+{
+	return (size + 2);
+}
+
+int		calc_total_height(int size)
+{
+	return ((2 * 3 + (size - 1)) * size / 2);
+}
+
+void	print_line(int i, int width, int door_size, int h, int max_width)
+{
+	print_left_side((max_width - width)/2);
+	if (i >= h - door_size)
+	{
+		print_body(width - 2, door_size,
+			door_size >= 5 && i == h - 1 - (door_size / 2));
+	} else
+		print_body(width - 2, 0, 0);
+	print_right_side((max_width - width)/2);
 }
 
 void	print_left_side(int blank_count)
