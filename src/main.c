@@ -1,11 +1,12 @@
+#include "../include/ft.h"
 #include "../include/sastantua.h"
 
 int		main(int ac, char **av)
 {
 	if (ac == 2)
-		process_args(av[1]);
+		sastantua(ft_atoi(av[1]));
 	else
-		print_error_msg("Usage: sastantua size");
+		ft_putstr("Usage: sastantua size\n");
 
 	return (0);
 }

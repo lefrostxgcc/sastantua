@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-INCLS := sastantua.h
+INCLS := ft.h sastantua.h
 INCLDIR = include/
 HEADERS = $(addprefix $(INCLDIR), $(INCLS))
 

@@ -1,25 +1,5 @@
+#include "../include/ft.h"
 #include "../include/sastantua.h"
-
-void	process_args(char *str)
-{
-	int	n;
-
-	n = ft_atoi(str);
-	if (n == 0)
-		print_error_msg("Usage: sastantua size");
-	else
-		sastantua(n);
-}
-
-void	print_error_msg(char *msg)
-{
-	while (*msg)
-	{
-		ft_putchar(*msg);
-		msg++;
-	}
-	ft_putchar('\n');
-}
 
 void	sastantua(int size)
 {
@@ -56,14 +36,14 @@ void	print_lines(int h, int max_width)
 	size_top_i = calc_size_height(size);
 	while (i < h)
 	{
-		print_left((max_width - width)/2);
+		print_left_side((max_width - width)/2);
 		if (i >= h - door_size)
 		{
 			print_body(width - 2, door_size,
 				door_size >= 5 && i == h - 1 - (door_size / 2));
 		} else
 			print_body(width - 2, 0, 0);
-		print_right((max_width - width)/2);
+		print_right_side((max_width - width)/2);
 		i++;
 		
 		if (i >= size_top_i)
@@ -78,13 +58,13 @@ void	print_lines(int h, int max_width)
 	}
 }
 
-void	print_left(int blank_count)
+void	print_left_side(int blank_count)
 {
 	print_char(' ', blank_count);
 	ft_putchar('/');
 }
 
-void	print_right()
+void	print_right_side()
 {
 	ft_putchar('\\');
 	ft_putchar('\n');
